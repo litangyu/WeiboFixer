@@ -58,7 +58,7 @@
                     android:layout_marginTop="12dp"
                     android:paddingEnd="22dp"
                     android:lineSpacingExtra="4dp"
-                    android:text="若您有兴趣，您还可以尝试我的其他应用:"/>
+                    android:text="@string/title_ad"/>
 
                 <TextView
                     android:layout_width="match_parent"
