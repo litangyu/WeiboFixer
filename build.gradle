@@ -1,0 +1,26 @@
+/*
+ * GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
+ *
+ * Copyright (C) 2017 drakeet https://github.com/drakeet
+ */
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.0-alpha03'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

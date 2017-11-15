@@ -1,0 +1,98 @@
+/*
+ * GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
+ *
+ * Copyright (C) 2017 drakeet https://github.com/drakeet
+ */
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.24.2'
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+def releaseKey = file('WeiboFixer.jks')
+def debugKey = file('debug.jks')
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "27.0.1"
+
+    defaultConfig {
+        applicationId "com.drakeet.weibo.fixer"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        debug {
+            storeFile debugKey
+            storePassword '123456'
+            keyAlias 'debug'
+            keyPassword '123456'
+        }
+        release {
+            storeFile releaseKey
+            storePassword project.hasProperty('WEIBO_FIXER_STOREPASS') ? WEIBO_FIXER_STOREPASS : ''
+            keyAlias project.hasProperty('WEIBO_FIXER_KEYALIAS') ? WEIBO_FIXER_KEYALIAS : ''
+            keyPassword project.hasProperty('WEIBO_FIXER_KEYPASS') ? WEIBO_FIXER_KEYPASS : ''
+        }
+    }
+
+    buildTypes {
+        debug {
+            versionNameSuffix '-debug'
+            applicationIdSuffix '.debug'
+            resValue 'string', 'scheme', 'drakeet-debug'
+        }
+        release {
+            postprocessing {
+                resValue 'string', 'scheme', 'drakeet'
+                debuggable false
+                removeUnusedCode false
+                removeUnusedResources false
+                obfuscate false
+                optimizeCode false
+                zipAlignEnabled true
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            def apkName = 'WeiboFixer' + '-' + variant.versionName
+            if (!variant.flavorName.isEmpty()) {
+                apkName += ('-' + variant.flavorName)
+            }
+            outputFileName = apkName + '.apk'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compileOnly fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation('com.crashlytics.sdk.android:crashlytics:2.7.1@aar') {
+        transitive = true
+    }
+}

@@ -1,0 +1,14 @@
+<!--
+  ~ GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
+  ~
+  ~ Copyright (C) 2017 drakeet https://github.com/drakeet
+  -->
+
+<resources
+    xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">修理微博</string>
+    <string name="note">微博复制的文本前后会带有 <b>[cp][/cp]</b> 标记，本应用将帮你自动去除这对标记。启用和禁用请进入 xposed 模块页面勾选。</string>
+    <string name="note_with_action">发现您复制了微博的文本，微博复制的文本前后会带有 <b>[cp][/cp]</b> 标记，需要帮您自动去除这对标记吗？</string>
+    <string name="writer"><u><b>纯纯写作</b> - 绝不丢失文本编辑器</u></string>
+    <string name="mosaic"><u><b>纯纯打码</b> - 让打码也能赏心悦目</u></string>
+</resources>

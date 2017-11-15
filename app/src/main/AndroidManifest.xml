@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
+  ~
+  ~ Copyright (C) 2017 drakeet https://github.com/drakeet
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.drakeet.weibo.fixer">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_wc_228w"
+        android:roundIcon="@mipmap/ic_wc_228w"
+        android:supportsRtl="true"
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:theme="@style/AppTheme.Light">
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true"/>
+        <meta-data
+            android:name="xposeddescription"
+            android:value="自动去除微博复制文本中的 [cp][/cp]"/>
+        <meta-data
+            android:name="xposedminversion"
+            android:value="54"/>
+
+        <activity
+            android:name="com.drakeet.weibo.fixer.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data
+                    android:scheme="@string/scheme"
+                    android:host="weibo.fixer"/>
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="7d89433c45968b008200bc0c85896f8592f86db7"/>
+    </application>
+
+</manifest>

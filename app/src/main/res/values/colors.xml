@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
+  ~
+  ~ Copyright (C) 2017 drakeet https://github.com/drakeet
+  -->
+
+<resources>
+    <color name="translucentBackgroundColor">#00000000</color>
+    <color name="cardBackground">#FFA000</color>
+</resources>
