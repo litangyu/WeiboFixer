@@ -36,6 +36,7 @@
             android:paddingTop="24dp"
             android:paddingBottom="@dimen/dialogPaddingBottom"
             android:orientation="vertical"
+            android:clipToPadding="false"
             android:gravity="center">
 
             <TextView
