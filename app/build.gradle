@@ -57,15 +57,15 @@ android {
             resValue 'string', 'scheme', 'drakeet-debug'
         }
         release {
+            resValue 'string', 'scheme', 'drakeet'
+            debuggable false
+            zipAlignEnabled true
+            signingConfig signingConfigs.release
             postprocessing {
-                resValue 'string', 'scheme', 'drakeet'
-                debuggable false
                 removeUnusedCode false
                 removeUnusedResources false
                 obfuscate false
                 optimizeCode false
-                zipAlignEnabled true
-                signingConfig signingConfigs.release
             }
         }
     }
