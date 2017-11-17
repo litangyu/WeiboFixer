@@ -6,7 +6,7 @@
 
 <img src="app/src/main/res/mipmap-hdpi/ic_wc_228w.png" width="200"/>
 
-下载：https://www.coolapk.com/apk/com.drakeet.weibo.fixer
+下载：https://www.coolapk.com/apk/com.drakeet.weibo.fixer  
 
 ### License
 
